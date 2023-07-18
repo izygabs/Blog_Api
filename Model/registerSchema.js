@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-module.exports.registerSchema = new mongoose.Schema({
+const registerSchema = new mongoose.Schema({
   userName: {
     type: String,
     required: [true, "This field is required"],
@@ -15,3 +15,5 @@ module.exports.registerSchema = new mongoose.Schema({
     minlength: 8,
   },
 });
+
+module.exports.register = mongoose.model("register", registerSchema);

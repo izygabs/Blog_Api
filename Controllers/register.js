@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
-const reg = require("../Model/registerSchema");
+const { register } = require("../Model/registerSchema");
 const { registration } = require("../Validators/validate");
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-
-const register = mongoose.model("registration", reg.registerSchema);
 
 module.exports.signUp = async (req, res) => {
   const { error, value } = registration(req.body);
@@ -26,3 +24,7 @@ module.exports.signUp = async (req, res) => {
     }
   }
 };
+
+// module.exports.login = (req, res) => {
+//   res.send("welcome");
+// };

@@ -8,4 +8,13 @@ const registration = (data) => {
   return schema.validate(data);
 };
 
+const contentPost = (data) => {
+  const schema = Joi.object({
+    title: Joi.string().required().trim(),
+    content: Joi.string().required().trim(),
+  });
+  return schema.validate(data);
+};
+
 module.exports.registration = registration;
+module.exports.contentPost = contentPost;

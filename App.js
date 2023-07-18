@@ -1,15 +1,11 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv");
+require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 const route = require("./Routes/allRoutes");
 
-mongoose.connect("mongodb://127.0.0.1:27017/Blog_Api", {
-  useNewUrlParser: true,
-});
-
-dotenv.config({ path: "./data.env" });
+mongoose.connect("mongodb://127.0.0.1:27017/Blog_Api");
 
 app.post("/home", (req, res) => {
   res.send("I see you");
