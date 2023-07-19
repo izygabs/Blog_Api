@@ -1,6 +1,6 @@
 const { register } = require("../Model/registerSchema");
 
-module.exports.putUser = async (req, res, next) => {
+module.exports.updateUser = async (req, res, next) => {
   try {
     const id = req.params.id;
     const name = req.header.userName;

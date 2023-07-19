@@ -5,7 +5,11 @@ const { getAllUsers } = require("../Controllers/getAllUsers");
 const { login } = require("../Controllers/login");
 const { verifyToken } = require("../middlewares/jwt");
 const { getUser } = require("../Controllers/getUser");
-const { putUser } = require("../Controllers/putUser");
+const { updateUser } = require("../Controllers/updateUser");
+const { getAllPosts } = require("../Controllers/getAllPosts");
+const { getPost } = require("../Controllers/getPost");
+const { updatePost } = require("../Controllers/updatePost");
+const { deletePost } = require("../Controllers/deletePost");
 
 const route = express.Router();
 
@@ -17,16 +21,16 @@ route.get("/api/users", verifyToken, getAllUsers);
 
 route.get("/api/users/:id", verifyToken, getUser);
 
-route.put("/api/users/:id", verifyToken, putUser);
+route.put("/api/users/:id", verifyToken, updateUser);
 
-route.post("/api/posts", verifyToken, contentCreate);
+route.post("/api/posts", contentCreate);
 
-route.get("/api/posts");
+route.get("/api/posts", verifyToken, getAllPosts);
 
-route.get("/api/posts/:id");
+route.get("/api/posts/:id", verifyToken, getPost);
 
-route.put("/api/posts/:id");
+route.put("/api/posts/:id", verifyToken, updatePost);
 
-route.delete("/login");
+route.delete("/api/posts/:id", verifyToken, deletePost);
 
 module.exports = route;

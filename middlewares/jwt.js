@@ -13,7 +13,7 @@ module.exports.verifyToken = (req, res, next) => {
         if (error) {
           console.error("JWT verification failed:", error.message);
         } else {
-          console.log("Decoded token:", decoded);
+          // console.log("Decoded token:", decoded);
           req.user = decoded;
         }
       });
